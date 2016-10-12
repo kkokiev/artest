@@ -1,0 +1,32 @@
+.logo {
+
+
+	&__body {
+		color: #747688;
+		font-family: $font-1;
+		font-weight: 400;
+	}
+
+	&__link {
+		display: inline-block;
+	}
+
+	&__img {
+		display: block;
+		width: 100%;
+		max-width: 246px;
+		margin-bottom: 5px;
+
+		@include breakpoint(max-width $size-small-desktop) {
+			max-width: 190px;
+		}
+	}
+
+	&__info {
+		color: #747688;
+
+		@include breakpoint(max-width $size-small-desktop) {
+			font-size: 13px;
+		}
+	}
+}

@@ -1,0 +1,110 @@
+.userbar {
+	font-size: 14px;
+	line-height: 22px;
+	font-family: $font-2;
+	font-weight: 700;
+	text-transform: uppercase;
+
+	@include breakpoint(max-width $size-small-desktop) {
+		font-size: 10px;
+	}
+
+	&__link {
+		position: relative;
+		display: inline-block;
+		margin-right: 15px;
+		color: #747688;
+
+		&:hover,
+		&:focus {
+			text-decoration: underline;
+		}
+
+		&:last-child {
+			margin-right: 0;
+		}
+
+		&_cart {
+			padding-left: 36px;
+
+			@include breakpoint(max-width $size-small-desktop) {
+				padding-left: 23px;
+			}
+
+			&:before {
+				content: '';
+				position: absolute;
+				left: 0;
+				top: 0;
+				bottom: 0;
+				margin: auto 0;
+				height: 22px;
+				width: 23px;
+				background-image: url(../img/icon-cart.png);
+				@include bg-image(transparent, center center, cover);
+
+				@include breakpoint(max-width $size-small-desktop) {
+					height: 15px;
+					width: 15px;
+				}
+			}
+		}
+
+		&_login {
+			padding-left: 27px;
+			font-size: 16px;
+
+			@include breakpoint(max-width $size-small-desktop) {
+				padding-left: 21px;
+				font-size: 13px;
+			}
+
+			&:before {
+				content: '';
+				position: absolute;
+				left: 0;
+				top: 0;
+				bottom: 0;
+				margin: auto 0;
+				height: 17px;
+				width: 19px;
+				background-image: url(../img/icon-user.png);
+				@include bg-image(transparent, center center, cover);
+
+				@include breakpoint(max-width $size-small-desktop) {
+					height: 14px;
+					width: 16px;
+				}
+			}
+		}
+
+	}
+
+	&__cart-count {
+		display: inline-block;
+		width: 22px;
+		color: $light;
+		font-size: 14px;
+		line-height: 22px;
+		text-align: center;
+		background: $brand;
+		border-radius: 50%;
+
+		@include breakpoint(max-width $size-small-desktop) {
+			width: 20px;
+			font-size: 13px;
+			line-height: 17px;
+		}
+	}
+
+	&__cart-price {
+		display: inline-block;
+		font-size: 16px;
+		line-height: 22px;
+
+		@include breakpoint(max-width $size-small-desktop) {
+			font-size: 13px;
+		}
+	}
+
+}

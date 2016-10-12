@@ -1,0 +1,345 @@
+.main-menu {
+	display: table;
+	width: 100%;
+	list-style: none;
+
+	@include breakpoint(max-width $size-tablet) {
+		display: block;
+		height: 100%;
+		overflow-y: scroll;
+	}
+
+	> li {
+		display: table-cell;
+		padding-right: 10px;
+		text-align: center;
+
+		@include breakpoint(max-width $size-tablet) {
+			display: block;
+			padding: 0;
+			text-align: left;
+		}
+
+		&:last-child {
+			padding-right: 0;
+		}
+
+		> a {
+			display: inline-block;
+			padding: 5px 0;
+			color: $main;
+			font-family: $font-2;
+			font-size: 15px;
+			font-weight: 700;
+			letter-spacing: -0.04em;
+			text-transform: uppercase;
+			
+			@include breakpoint(max-width $size-small-desktop) {
+				font-size: 12px;
+			}
+
+			@include breakpoint(max-width $size-tablet) {
+				width: 100%;
+				padding: 5px 2px;
+				font-size: 16px;
+
+				&:focus {
+					background: lighten(#3eade2, 20%);
+				}
+			}
+
+		}
+	}
+
+	> li.main-menu__dropdown {
+		position: relative;
+
+		> a {
+			position: relative;
+			padding-left: 28px;
+			padding-right: 22px;
+
+			@include breakpoint(max-width $size-tablet) {
+				padding-left: 2px;
+				padding-right: 2px;
+			}
+
+			&:before {
+				content: '';
+				position: absolute;
+				top: 0;
+				left: 0;
+				bottom: 0;
+				margin: auto 0;
+				display: block;
+				height: 12px;
+				width: 16px;
+				background-image: url("../img/icon-menu.png");
+				@include bg-image(transparent, center center, cover);
+
+				@include breakpoint(max-width $size-tablet) {
+					display: none;
+				}
+			}
+
+			&:after {
+				content: '';
+				position: absolute;
+				top: 0;
+				right: 0;
+				bottom: 0;
+				margin: auto 0;
+				display: block;
+				height: 7px;
+				width: 11px;
+				background-image: url("../img/icon-dropdown.png");
+				@include bg-image(transparent, center center, cover);
+
+				@include breakpoint(max-width $size-tablet) {
+					display: none;
+				}
+			}
+
+		}
+	}
+
+/* FIRST LEVEL SUBMENU*/
+
+	&__submenu {
+		display: none;
+		position: absolute;
+		z-index: 1000;
+		top: 45px;
+		left: -16px;
+		width: 245px;
+		padding: 14px 0 20px;
+		list-style: none;
+		text-align: left;
+		background-color: $light;
+		border: 1px solid #dddfdf;
+		border-radius: 3px;
+
+		@include breakpoint(max-width $size-small-desktop) {
+			left: 0;
+			right: 0;
+			margin: 0 auto;
+		}
+
+		@include breakpoint(max-width $size-tablet) {
+			display: block !important;
+			position: static;
+			width: 100%;
+			margin: 0;
+			padding: 5px 0;
+			background: transparent;
+			border: none;
+		}
+
+		&:before {
+			content: '';
+			display: block;
+			position: absolute;
+			top: -25px;
+			left: 0;
+			height: 25px;
+			width: 100%;
+
+			@include breakpoint(max-width $size-tablet) {
+				display: none;
+			}
+		}
+
+		> li {
+			position: relative;
+			padding-left: 32px;
+			padding-right: 17px;
+
+			@include breakpoint(max-width $size-tablet) {
+				padding: 0;
+				border-bottom: 1px solid #dddfdf;
+			}
+
+			&:before {
+				content: '';
+				position: absolute;
+				top: 11px;
+				left: 15px;
+				display: block;
+				height: 6px;
+				width: 6px;
+				background-image: url(../img/icon-list-img.png);
+				@include bg-image(transparent, center center, cover);
+				
+				@include breakpoint(max-width $size-tablet) {
+					display: none;
+				}
+			}
+
+			&:hover {
+				background-color: #e9e9ea;
+
+				@include breakpoint(max-width $size-tablet) {
+					background-color: transparent;
+				}
+			}
+
+			> a {
+				display: inline-block;
+				width: 100%;
+				padding: 6px 0 7px;
+				padding-right: 8px;
+				color: #666666;
+				font-size: 15px;
+				line-height: 1.2em;
+				
+				@include breakpoint(max-width $size-tablet) {
+					padding-left: 2px;
+					padding-right: 2px;
+				}
+				
+				&:focus {
+					text-decoration: underline;
+
+					@include breakpoint(max-width $size-tablet) {
+						text-decoration: none;
+						background-color: #e9e9ea;
+					}
+				}
+			}
+
+		}
+
+		>li.main-menu__submenu-dropdown {
+
+			> a {
+				position: relative;
+
+				&:after {
+					content: '';
+					position: absolute;
+					top: 0;
+					right: 0;
+					bottom: 0;
+					margin: auto 0;
+					display: block;
+					height: 11px;
+					width: 7px;
+					background-image: url(../img/icon-dropdown-right.png);
+					@include bg-image(transparent, center center, cover);
+
+					@include breakpoint(max-width $size-tablet) {
+						display: none;
+					}
+				}
+			}
+		}
+
+	}
+
+/* SECOND LEVEL SUBMENU*/
+	&__second-submenu {
+		display: none;
+		position: absolute;
+		width: 245px;
+		top: -10px;
+		left: calc(100% + 2px);
+		padding-top: 22px;
+		padding-bottom: 22px;
+		background-color: $light;
+		border-radius: 3px;
+		border: 1px solid #ccc;
+		list-style: none;
+
+		@include breakpoint(max-width $size-tablet) {
+			display: block !important;
+			position: static;
+			width: 100%;
+			margin: 0;
+			background: transparent;
+			border: none;
+			padding: 0;
+		}
+
+		> li {
+			position: relative;
+			padding-left: 33px;
+			padding-right: 17px;
+
+			@include breakpoint(max-width $size-tablet) {
+				padding: 0;
+			}
+
+			&:before {
+				content: '';
+				position: absolute;
+				top: 11px;
+				left: 18px;
+				display: block;
+				height: 6px;
+				width: 6px;
+				background-image: url(../img/icon-list-img.png);
+				@include bg-image(transparent, center center, cover);
+
+				@include breakpoint(max-width $size-tablet) {
+					display: none;
+				}
+
+			}
+
+			&:hover {
+				background-color: #e9e9ea;
+
+				@include breakpoint(max-width $size-tablet) {
+					background-color: transparent;
+				}
+			}
+
+			> a {
+				display: inline-block;
+				width: 100%;
+				padding: 5px 0 6px;
+				padding-right: 8px;
+				color: #666666;
+				font-size: 15px;
+				line-height: 1.2em;
+
+				@include breakpoint(max-width $size-tablet) {
+					padding-left: 15px;
+					padding-right: 2px;
+				}
+
+				&:focus {
+					text-decoration: underline;
+
+					@include breakpoint(max-width $size-tablet) {
+						text-decoration: none;
+						background-color: #e9e9ea;
+					}
+				}
+			}
+		}
+
+		> .main-menu__second-submenu-title {
+			padding: 0 16px 10px;
+			color: $brand;
+			font-size: 16px;
+			font-family: $font-2;
+			font-weight: bold;
+			text-transform: uppercase;
+
+			@include breakpoint(max-width $size-tablet) {
+				display: none;
+			}
+
+			&:before {
+				display: none;
+			}
+
+			&:hover {
+				background-color: transparent;
+			}
+		}
+
+
+	}
+}

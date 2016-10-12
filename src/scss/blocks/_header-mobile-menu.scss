@@ -1,0 +1,60 @@
+.header-mobile-menu {
+	@include clearfix()
+	list-style: none;
+
+	> li {
+		float: left;
+		width: 16.66666666%;
+		height: 40px;
+	}
+
+	&__item {
+		display: block;
+		height: 100%;
+		width: 100%;
+		overflow: hidden;
+		white-space: nowrap;
+		text-indent: 100%;
+
+		&:hover,
+		&:focus {
+			background-color: #3eade2;
+		}
+
+		&_navbtn {
+			background-image: url("../img/mob-icon-navbtn.png");
+			@include bg-image( #3eade2, center center, 16px 14px);
+
+			&:hover,
+			&:focus {
+				background-color: darken(#3eade2, 15%);
+			}
+		}
+
+		&_home {
+			background-image: url("../img/mob-icon-home.png");
+			@include bg-image( #f0f1f6, center center, 20px 16px);
+		}
+
+		&_search {
+			background-image: url("../img/mob-icon-search.png");
+			@include bg-image( #f0f1f6, center center, 16px 16px);
+		}
+
+		&_cart {
+			background-image: url("../img/mob-icon-cart.png");
+			@include bg-image( #f0f1f6, center center, 17px 17px);
+		}
+
+		&_login {
+			background-image: url("../img/mob-icon-login.png");
+			@include bg-image( #f0f1f6, center center, 19px 16px);
+		}
+
+		&_call {
+			background-image: url("../img/mob-icon-call.png");
+			@include bg-image( #f0f1f6, center center, 16px 17px);
+		}
+
+	}
+}

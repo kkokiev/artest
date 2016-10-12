@@ -1,0 +1,45 @@
+.header-search {
+	position: relative;
+
+	&__input {
+		height: 40px;
+		width: 100%;
+		padding-left: 9px;
+		padding-right: 40px;
+		font-size: 14px;
+		border: 1px solid #b9b8bd;
+		border-radius: 3px;
+		text-overflow: ellipsis;
+
+		@include breakpoint(max-width $size-small-desktop) {
+			height: 30px;
+			font-size: 10px;
+		}
+	}
+
+	&__submit {
+		position: absolute;
+		top: 1px;
+		right: 1px;
+		height: 38px;
+		width: 34px;
+		border: 0;
+		border-left: 1px solid $light;
+		background-image: url("../img/icon-search.png");
+		@include bg-image($light, center center, 18px 18px);
+		@include transition(all .3s ease-in);
+
+		@include breakpoint(max-width $size-small-desktop) {
+			height: 28px;
+			width: 27px;
+			@include bg-image($light, center center, 11px 11px);
+		}
+
+		&:hover,
+		&:focus {
+			background-color: #efefef;
+			border-left: 1px solid #b9b8bd;
+		}
+	}
+		
+}

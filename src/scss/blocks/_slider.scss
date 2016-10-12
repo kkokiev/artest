@@ -1,0 +1,177 @@
+.slider {
+	
+	&__slide-content {
+		display: table;
+		width: 100%;
+		min-height: 327px;
+		height: 327px;
+		padding: 20px 70px;
+		@include bg-image(#b9b8bd, center bottom, cover);
+
+		@include breakpoint(max-width $size-tablet){
+			min-height: 165px;
+			padding: 20px 38px; 
+		}
+
+		@include breakpoint(max-width $size-small){
+			min-height: 124px;
+			padding: 20px 27px; 
+		}
+	}
+
+	&__slide-content-inner {
+		display: table-cell;
+		height: 100%;
+		width: 100%;
+		vertical-align: middle;
+	}
+
+	&__info {
+		display: inline-block;
+		vertical-align: middle;
+		padding: 17px 33px;
+		color: $light;
+		font-size: 42px;
+		line-height: 1.12em;
+		background: $brand-2;
+		opacity: .88;
+
+		@include breakpoint(max-width $size-tablet){
+			padding: 9px 16px;
+			font-size: 22px;
+			line-height: 1.1em;
+		}
+
+		@include breakpoint(max-width $size-small){
+			padding: 5px 7px;
+			font-size: 15px;
+			line-height: 1.2em;
+		}
+
+		&:hover,
+		&:focus {
+			opacity: 1;
+		}
+
+
+	}
+
+	.slick-list {
+		z-index: 1;
+	}
+
+	.slick-prev {
+		background-image: url("../img/slider-arr-left-white.png");
+	}
+
+	.slick-next {
+		background-image: url("../img/slider-arr-right-white.png");
+	}
+
+	.slick-prev,
+	.slick-next {
+		position: absolute;
+		z-index: 2;
+		top: 50%;
+		margin-top: -112px;
+		height: 128px;
+		width: 37px;
+		padding: 0;
+		opacity: 1;
+		border: 0;
+		text-indent: 100%;
+		white-space: nowrap;
+		overflow: hidden;
+		@include bg-image($brand-2, center center, 14px 28px);
+		@include transition(all .3s ease-in);
+
+		@include breakpoint(max-width $size-tablet){
+			margin-top: -56px;
+			height: 66px;
+			width: 20px;
+			@include bg-image($brand-2, center center, 8px 14px);
+		}
+
+		@include breakpoint(max-width $size-small){
+			height: 28px;
+			top: 0;
+			bottom: 0;
+			margin-top: auto;
+			margin-bottom: auto;
+		}
+	}
+
+	.slick-prev {
+		left: 0;
+	}
+
+	.slick-next {
+		left: auto;
+		right: 0;
+	}
+
+	.slick-prev:hover,
+	.slick-prev:focus {
+		background-image: url("../img/slider-arr-left-brand.png");
+	}
+
+	.slick-next:hover,
+	.slick-next:focus {
+		background-image: url("../img/slider-arr-right-brand.png");
+	}
+
+	.slick-prev:hover,
+	.slick-prev:focus,
+	.slick-next:hover,
+	.slick-next:focus {
+		@include bg-image($light, center center, 14px 28px);
+
+		@include breakpoint(max-width $size-tablet){
+			@include bg-image($light, center center, 8px 14px);
+		}
+	}
+
+	.slick-dots{
+		padding-top: 48px;
+		padding-bottom: 32px;
+		list-style: none;
+		text-align: center;
+
+		@include breakpoint(max-width $size-tablet){
+			padding: 15px 0; 
+		}
+
+		@include breakpoint(max-width $size-small){
+			display: none !important;
+		}
+
+		li {
+			display: inline-block;
+
+			button {
+				height: 16px;
+				width: 16px;
+				padding: 0;
+				margin: 0 11px;
+				background-color: #eedcc4;
+				border: 0;
+				border-radius: 50%;
+				text-indent: 100%;
+				white-space: nowrap;
+				overflow: hidden;
+				@include transition(all .3s ease-in);
+
+				&:hover,
+				&:focus {
+					background: $brand;
+				}
+			}
+		}
+
+		li.slick-active {
+			button {
+				background: $brand;
+			}
+		}
+	}
+}

@@ -1,0 +1,32 @@
+@mixin transition($args...) {
+	-webkit-transition: $args;
+	-moz-transition: $args;
+	-ms-transition: $args;
+	-o-transition: $args;
+	transition: $args;
+}
+
+@mixin clearfix{
+	&:before,
+	&:after{
+		content: "";
+		height: 0;
+		display: table;
+	}
+	&:after{
+		clear: both;
+	}
+}
+
+@mixin single-line {
+	white-space: nowrap;
+	overflow: hidden;
+	text-overflow: ellipsis;
+}
+
+@mixin bg-image ($bgcolor, $bgposition, $bgsize){
+	background-color: $bgcolor;
+	background-position: $bgposition;
+	background-repeat: no-repeat;
+	background-size: $bgsize;
+}

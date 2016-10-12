@@ -1,0 +1,42 @@
+.header-meta {
+	float: right;
+
+	&__info-wrap {
+		display: table;
+		width: 100%;
+	}
+
+	&__info-block {
+		display: table-cell;
+		padding-left: 16px;
+		vertical-align: middle;
+
+		@include breakpoint(max-width $size-small-desktop) {
+			font-size: 10px;
+		}
+	}
+
+	&__phone {
+		font-size: 23px;
+		color: #181616;
+		white-space: nowrap;
+
+		@include breakpoint(max-width $size-small-desktop) {
+			font-size: 15px;
+		}
+
+		&:hover,
+		&:focus {
+			text-decoration: underline;
+		}
+	}
+
+	&__info {
+		display: block;
+		color: #2b3056;
+
+		&_brand-color {
+			color: $brand;
+		}
+	}
+}
